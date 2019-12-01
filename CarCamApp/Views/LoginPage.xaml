@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="CarCamApp.Views.LoginPage">
+
+    <StackLayout>
+        <StackLayout>
+            <Label Text="Sign In to your account on the Car Cam App!" HorizontalOptions="Fill" FontSize="Title"/>
+            <Label Text="Don't have an account? Sign Up!" HorizontalOptions="Center" FontSize="Subtitle"/>
+        </StackLayout>
+    
+        <StackLayout>
+            <Label x:Name="Lbl_Username" Text="Username:"/>
+            <Entry x:Name="Entry_Username" Placeholder="Username"/>
+            <Label x:Name="Lbl_Password" Text="Password:"/>
+            <Entry x:Name="Entry_Password" Placeholder="Password"/>
+            <StackLayout Orientation="Horizontal">
+                <Button x:Name="Btn_SignIn" Text="Sign In" HorizontalOptions="End" Clicked="SignInProcedure"/>
+                <Button x:Name="Btn_SignUp" Text="Sign Up" HorizontalOptions="End" TextColor="Blue" Clicked="SignUpProcedure"/>
+            </StackLayout>
+            
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

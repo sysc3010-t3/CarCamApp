@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarCamApp.Android", "CarCamApp.Android\CarCamApp.Android.csproj", "{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarCamApp", "CarCamApp\CarCamApp.csproj", "{C971DB81-1695-416A-8D92-A6D8BF0FE319}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241CBB72-C90B-45A6-BBEE-8DDD639FF9C2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C971DB81-1695-416A-8D92-A6D8BF0FE319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C971DB81-1695-416A-8D92-A6D8BF0FE319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C971DB81-1695-416A-8D92-A6D8BF0FE319}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C971DB81-1695-416A-8D92-A6D8BF0FE319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C971DB81-1695-416A-8D92-A6D8BF0FE319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C971DB81-1695-416A-8D92-A6D8BF0FE319}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10FDFE69-F96F-44D3-A6B1-83214A2A3F85}
+	EndGlobalSection
+EndGlobal
