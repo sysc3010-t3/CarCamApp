@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 using System.Net;
 using System.Net.Sockets;
@@ -78,19 +79,13 @@ namespace CarCamApp.Models
                     case Message.MsgType.ERROR:
                         return JsonConvert.DeserializeObject<Error>(msgStr, settings);
                     default:
-                        this.Send(new Error(
-                            Error.ErrorTypes.BAD_REQ,
-                            "invalid request type: "+obj.Type
-                        ));
+                        Debug.WriteLine("invalid type: " + obj.Type);
                         break;
                 }
             }
             catch (JsonException e)
             {
-                this.Send(new Error(
-                    Error.ErrorTypes.BAD_REQ,
-                    "invalid JSON: " + e.Message
-                ));
+                Debug.WriteLine("invalid JSON: " + e.Message);
             }
 
             return null;
