@@ -21,7 +21,7 @@ namespace CarCamApp.Views
             try
             {
                 user.Login();
-                Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                Application.Current.MainPage = new NavigationPage(new MasterDetail(user));
             }
             catch (ServerUnreachableException)
             {
@@ -30,13 +30,25 @@ namespace CarCamApp.Views
             catch (Exception exception)
             {
                 await DisplayAlert("Login", exception.Message, "OK");
-            }  
-
+            }
         }
 
-        void SignUpProcedure(object sender, EventArgs e)
+        async void SignUpProcedure(object sender, EventArgs e)
         {
-            Application.Current.MainPage = new NavigationPage(new SignUpPage());
+            User user = new User(Entry_Username.Text, Entry_Password.Text);
+            try
+            {
+                user.Register();
+                Application.Current.MainPage = new NavigationPage(new MasterDetail(user));
+            }
+            catch (ServerUnreachableException)
+            {
+                await DisplayAlert("Sign Up", "Server is unreachable. Try again later.", "OK");
+            }
+            catch (Exception exception)
+            {
+                await DisplayAlert("Sign Up", exception.Message, "OK");
+            }
         }
     }
 }
