@@ -1,10 +1,6 @@
 ﻿using CarCamApp.Models;
 using CarCamApp.Views.Menu;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,17 +18,19 @@ namespace CarCamApp.Views
         async void SignUpProcedure(object sender, EventArgs e)
         {
             User user = new User(Entry_Username.Text, Entry_Password.Text);
-            if (user.CheckInformation())
+            try
             {
-                DisplayAlert("Login", "Login Successful", "Logged in");
+                user.Register();
                 Application.Current.MainPage = new NavigationPage(new MasterDetail());
             }
-            else
+            catch (ServerUnreachableException)
             {
-                DisplayAlert("Login", "Login Not Successful, empty username or password", "Logged in");
+                await DisplayAlert("Login", "Server is unreachable. Try again later.", "OK");
             }
-
-
+            catch (Exception exception)
+            {
+                await DisplayAlert("Login", exception.Message, "OK");
+            }
         }
 
     }
