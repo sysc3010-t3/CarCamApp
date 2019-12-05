@@ -186,7 +186,7 @@ namespace CarCamApp.Views
 
         private void OnRegisterCar()
         {
-            // TODO: Navigation.PushAsync(new RegisterCarPage());
+            Navigation.PushAsync(new ConnectCar(_User));
         }
 
         private void OnCarSelect(object sender, EventArgs args)
@@ -227,7 +227,7 @@ namespace CarCamApp.Views
                 if (resp is Ack)
                 {
                     client.Close();
-                    Navigation.PushAsync(new VideoStreamPage());
+                    Navigation.PushAsync(new VideoStreamPage(carID));
                     return;
                 }
 

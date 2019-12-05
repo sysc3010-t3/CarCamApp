@@ -7,10 +7,7 @@
              x:Class="CarCamApp.Views.VideoStreamPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="To be added Video Streaming, Coming soon."
-                
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <WebView x:Name="webView" WidthRequest="1000" HeightRequest="1000" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

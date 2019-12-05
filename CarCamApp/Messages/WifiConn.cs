@@ -16,5 +16,13 @@ namespace CarCamApp.Messages
             this.SSID = ssid;
             this.Password = pasword;
         }
+
+        public WifiConn(int userID, string carName, string ssid)
+        {
+            this.Type = MsgType.WIFI_CONN;
+            this.UserID = userID;
+            this.CarName = carName;
+            this.SSID = ssid;
+        }
     }
 }
