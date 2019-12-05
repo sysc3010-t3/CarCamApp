@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using CarCamApp.Models;
 
@@ -14,6 +10,8 @@ namespace CarCamApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VideoStreamPage : ContentPage
     {
+        public static bool linked = false;
+
         public VideoStreamPage(int carID)
         {
             InitializeComponent();
@@ -25,6 +23,17 @@ namespace CarCamApp.Views
             webView.Source = url;
             webView.VerticalOptions = LayoutOptions.Fill;
             webView.HorizontalOptions = LayoutOptions.Fill;
+        }
+
+        protected override void OnAppearing()
+        {
+            linked = true;
+            base.OnAppearing();
+        }
+
+        protected override void OnDisappearing() {
+            linked = false;
+            base.OnDisappearing();
         }
     }
 }
