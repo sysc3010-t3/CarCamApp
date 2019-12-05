@@ -1,5 +1,4 @@
 ﻿using CarCamApp.Models;
-using CarCamApp.Views.Menu;
 using System;
 
 using Xamarin.Forms;
@@ -21,7 +20,7 @@ namespace CarCamApp.Views
             try
             {
                 user.Login();
-                Application.Current.MainPage = new NavigationPage(new MasterDetail(user));
+                Application.Current.MainPage = new NavigationPage(new Dashboard(user));
             }
             catch (ServerUnreachableException)
             {
@@ -39,7 +38,7 @@ namespace CarCamApp.Views
             try
             {
                 user.Register();
-                Application.Current.MainPage = new NavigationPage(new MasterDetail(user));
+                Application.Current.MainPage = new NavigationPage(new Dashboard(user));
             }
             catch (ServerUnreachableException)
             {
