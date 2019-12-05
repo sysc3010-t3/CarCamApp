@@ -52,5 +52,10 @@ namespace CarCamApp.Views.Menu
             }
             #endregion
         }
+
+        async void AddCarProcedure(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ConnectCar());
+        }
     }
 }

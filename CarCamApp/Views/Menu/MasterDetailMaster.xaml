@@ -55,8 +55,8 @@
       </ListView.ItemTemplate>
     </ListView>
         <StackLayout>
-            <Button Text="Add Car" TextColor="Black"/>
-            <Button Text="Logout" TextColor="Red"/>
+            <Button Text="Add Car" TextColor="Black" Clicked="AddCarProcedure"/>
+            <Button Text="Logout" TextColor="Red" />
         </StackLayout>
       
   </StackLayout>

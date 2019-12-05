@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CarCamApp.Models;
 namespace CarCamApp.Messages
 {
@@ -6,7 +7,7 @@ namespace CarCamApp.Messages
     {
         public int? UserID { get; set; }
         public Car[] Cars { get; set; }
-        public string[] Networks { get; set; }
+        public Dictionary<string, string> Networks { get; set; }
 
         public Ack()
         {
