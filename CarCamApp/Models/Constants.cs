@@ -12,6 +12,7 @@ namespace CarCamApp.Models
         public static Color MainTextColour = Color.White;
         public static string ServerIP = "192.168.0.29"; // Change to actual server IP
         public static int ServerPort = 6006;
+        public static int ServerStreamPort = 5000;
         public static string CarAccessPointIP = "192.168.4.1";
         public static int CarAccessPointPort = 5005;
     }

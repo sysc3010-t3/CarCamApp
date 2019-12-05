@@ -34,7 +34,7 @@ namespace CarCamApp.Views.Menu
 
             //MasterPage.ListView.SelectedItem = null;
 
-            Application.Current.MainPage = new NavigationPage(new VideoStreamPage());
+            Application.Current.MainPage = new NavigationPage(new VideoStreamPage(1));
 
         }
     }
