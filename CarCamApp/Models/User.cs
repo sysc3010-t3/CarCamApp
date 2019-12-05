@@ -10,9 +10,6 @@ namespace CarCamApp.Models
         public string Name { get; set; }
         private string Password { get; set; }
 
-        private const int TIMEOUT = 5000;
-        private const int MAX_ATTEMPTS = 3;
-
         public User(string name, string password)
         {
             this.Name = name;
@@ -41,9 +38,9 @@ namespace CarCamApp.Models
                     throw new InvalidOperationException("Unable to create UDP client: " + e.Message);
                 }
 
-                client.SetRecvTimeout(TIMEOUT);
+                client.SetRecvTimeout(Constants.TIMEOUT);
                 int attempts = 0;
-                while (attempts < MAX_ATTEMPTS)
+                while (attempts < Constants.MAX_ATTEMPTS)
                 {
                     client.Send(new RegUser(this.Name, this.Password));
 
@@ -87,9 +84,9 @@ namespace CarCamApp.Models
                     throw new InvalidOperationException("Unable to create UDP client: " + e.Message);
                 }
 
-                client.SetRecvTimeout(TIMEOUT);
+                client.SetRecvTimeout(Constants.TIMEOUT);
                 int attempts = 0;
-                while (attempts < MAX_ATTEMPTS)
+                while (attempts < Constants.MAX_ATTEMPTS)
                 {
                     client.Send(new Login(this.Name, this.Password));
 
