@@ -63,6 +63,9 @@ namespace CarCamApp.Views
                 };
                 carBtn.SetBinding(Button.TextProperty, "Name");
                 carBtn.SetBinding(IsEnabledProperty, "IsOn");
+                carBtn.SetBinding(Button.CommandParameterProperty, "ID");
+
+                carBtn.Clicked += OnCarSelect;
 
                 return carBtn;
             }));
@@ -184,6 +187,56 @@ namespace CarCamApp.Views
         private void OnRegisterCar()
         {
             // TODO: Navigation.PushAsync(new RegisterCarPage());
+        }
+
+        private void OnCarSelect(object sender, EventArgs args)
+        {
+            Button carBtn = (Button)sender;
+
+            int carID = (int)carBtn.CommandParameter;
+
+            SocketClient client;
+
+            try
+            {
+                client = new SocketClient(Constants.ServerIP, Constants.ServerPort);
+            }
+            catch (Exception e)
+            {
+                DisplayAlert("Car Link", e.Message, "OK");
+                return;
+            }
+
+            client.SetRecvTimeout(Constants.TIMEOUT);
+
+            int attempts = 0;
+
+            while (attempts < Constants.MAX_ATTEMPTS)
+            {
+                client.Send(new Link(carID, this._User.ID));
+
+                Message resp = client.Receive();
+
+                if (resp is Error error)
+                {
+                    client.Close();
+                    DisplayAlert("Car Link", error.ErrorMsg, "OK");
+                    return;
+                }
+
+                if (resp is Ack)
+                {
+                    client.Close();
+                    Navigation.PushAsync(new VideoStreamPage());
+                    return;
+                }
+
+                attempts++;
+            }
+
+            client.Close();
+            DisplayAlert("Car Link", "Server is unreachable. Try again later.", "OK");
+            return;
         }
 
         private void OnLogOut()
