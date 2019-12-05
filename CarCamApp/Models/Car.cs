@@ -11,8 +11,15 @@ namespace CarCamApp.Models
     )]
     public class Car
     {
-        public int ID;
-        public string Name;
-        public bool IsOn;
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public bool IsOn { get; set; }
+
+        public Car(int id, string name, bool isOn)
+        {
+            ID = id;
+            Name = name;
+            IsOn = isOn;
+        }
     }
 }
