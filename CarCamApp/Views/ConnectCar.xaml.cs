@@ -10,9 +10,12 @@ namespace CarCamApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ConnectCar : ContentPage
     {
-        public ConnectCar()
+        private User user;
+
+        public ConnectCar(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         async void ConnectProcedure(object sender, EventArgs e)
@@ -47,7 +50,7 @@ namespace CarCamApp.Views
         {
             Button btn = (Button) sender;
             WifiNetwork network = (WifiNetwork) btn.CommandParameter;
-            await Navigation.PushAsync(new RegisterCar(network));
+            await Navigation.PushAsync(new RegisterCar(user, network));
         }
 
         private Dictionary<string, string> getWiFiList()

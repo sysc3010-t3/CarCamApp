@@ -1,7 +1,7 @@
 ﻿using System;
 using CarCamApp.Messages;
 using CarCamApp.Models;
-using CarCamApp.Views.Menu;
+using CarCamApp.Views;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,12 +11,14 @@ namespace CarCamApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegisterCar : ContentPage
     {
+        private User user;
         private WifiNetwork network;
         private bool requirePassword;
 
-        public RegisterCar(WifiNetwork network)
+        public RegisterCar(User user, WifiNetwork network)
         {
             InitializeComponent();
+            this.user = user;
             this.network = network;
             labelSSID.Text = network.SSID;
 
@@ -45,7 +47,7 @@ namespace CarCamApp.Views
             try
             {
                 connectCarToWifi();
-                Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                Application.Current.MainPage = new NavigationPage(new Dashboard(user));
             }
             catch (ServerUnreachableException)
             {
@@ -62,11 +64,11 @@ namespace CarCamApp.Views
             WifiConn msg;
             if (requirePassword)
             {
-                msg = new WifiConn(1, entryCarName.Text, network.SSID, entryWifiPass.Text);
+                msg = new WifiConn(user.ID, entryCarName.Text, network.SSID, entryWifiPass.Text);
             }
             else
             {
-                msg = new WifiConn(1, entryCarName.Text, network.SSID);
+                msg = new WifiConn(user.ID, entryCarName.Text, network.SSID);
             }
 
             SocketClient client;
