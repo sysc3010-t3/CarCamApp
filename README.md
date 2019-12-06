@@ -29,15 +29,16 @@ movement of a car with any controller connected over Bluetooth or a USB cable.
   connected Android device.  
 
 ## Code Structure
-* `CarCamApp.sln`: solution file for loading the project into Visual Studio
-* `CarCamApp.Android/MainActivity.cs`: contains the code for the main Activity
-of the app which initializes the graphical user interface (GUI) and also handles
-controller input
-* `CarCampApp/`:
-  * `Views/`: contains the code (`*.cs`) and markup (`*.xaml`) for all the custom
-  Views that make up the GUI
-  * `Models/`: contains the code that represents the different components of the
-  systems (`Car.cs`, `User.cs`, etc.), as well as utility code (`Constants.cs`,
-  `SocketClient.cs`, etc.)
-  * `Messages/`: contains the code that represents the relevant message types for
-  the app from the system's communication protocol
+* [CarCamApp.sln](./CarCampApp.sln): solution file for loading the project into
+Visual Studio
+* [CarCamApp.Android/MainActivity.cs](./CarCamApp.Android/MainActivity.cs):
+contains the code for the main Activity of the app which initializes the
+graphical user interface (GUI) and also handles controller input
+* [CarCamApp/](./CarCamApp):
+  * [Views/](./CarCamApp/Views): contains the code (`*.cs`) and markup
+  (`*.xaml`) for all the custom Views that make up the GUI
+  * [Models/](./CarCamApp/Models): contains the code that represents the
+  different components of the systems (`Car.cs`, `User.cs`, etc.), as well as
+  utility code (`Constants.cs`, `SocketClient.cs`, etc.)
+  * [Messages/](./CarCamApp/Messages): contains the code that represents the
+  relevant message types for the app from the system's communication protocol
