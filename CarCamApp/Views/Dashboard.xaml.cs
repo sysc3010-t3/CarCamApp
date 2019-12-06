@@ -109,6 +109,16 @@ namespace CarCamApp.Views
                                     },
                                     new ImageButton
                                     {
+                                        Source = "refresh.png",
+                                        BackgroundColor = Color.Transparent,
+                                        Scale = 0.5,
+                                        Command = new Command(() => {
+                                            refresh.IsRefreshing = true;
+                                            RefreshCars(carList, refresh);
+                                        })
+                                    },
+                                    new ImageButton
+                                    {
                                         Source = "add.png",
                                         BackgroundColor = Color.Transparent,
                                         Scale = 0.5,

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using CarCamApp.Messages;
 using CarCamApp.Models;
 using CarCamApp.Views;
@@ -82,13 +83,20 @@ namespace CarCamApp.Views
                 throw new InvalidOperationException("Unable to create UDP client: " + e.Message);
             }
 
-            client.SetRecvTimeout(2000); // TODO: USE CONSTANT
+            client.SetRecvTimeout(15000);
             int attempts = 0;
-            while (attempts < 10) // TODO: USE CONSTANT
+            bool firstSend = true;
+            while (attempts < 10)
             {
                 client.Send(msg);
 
                 Message resp = client.Receive();
+
+                if (firstSend)
+                {
+                    firstSend = false;
+                    client.SetRecvTimeout(2000);
+                }
 
                 if (resp is Error error)
                 {

@@ -7,6 +7,7 @@ using Android.Views;
 using Android.OS;
 
 using CarCamApp.Views;
+using CarCamApp.Models;
 
 using Android.Hardware.Input;
 using Android.Content;
@@ -56,7 +57,7 @@ namespace CarCamApp.Droid
                 while (!VideoStreamPage.linked) ;
 
                 UdpClient client = new UdpClient(8080);
-                client.Connect("192.168.0.29", 6006);
+                client.Connect(Constants.ServerIP, Constants.ServerPort);
                 Byte[] currentMessage = null;
                 string s;
                 while (VideoStreamPage.linked)
