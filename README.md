@@ -13,16 +13,16 @@ movement of a car with any controller connected over Bluetooth or a USB cable.
   * Xamarin.Forms
 
 ### Steps:
-1. Install Visual Studio  
+1. Install Visual Studio.  
   a) Download the installer from
-     [here](https://visualstudio.microsoft.com/downloads/)  
+     [here](https://visualstudio.microsoft.com/downloads/).  
   b) Follow the instructions
      [here](https://docs.microsoft.com/en-us/xamarin/get-started/installation/?pivots=windows)
      to install Xamarin with Visual Studio.  
 2. Once Visual Studio is running, use it to open the `CarCamApp.sln` file
    located in the top-level directory of this repository.  
 3. Build the application.  
-  a) Either connect an Android device (with **Develop options** and
+  a) Either connect an Android device (with **Developer options** and
   **USB debugging** enabled) to the computer running Visual Studio with a USB
   cable or run an emulator.  
   b) Click the green "run" button to build the app and launch it on the
