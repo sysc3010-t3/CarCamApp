@@ -29,7 +29,7 @@ movement of a car with any controller connected over Bluetooth or a USB cable.
   connected Android device.  
 
 ## Code Structure
-* [CarCamApp.sln](./CarCampApp.sln): solution file for loading the project into
+* [CarCamApp.sln](./CarCamApp.sln): solution file for loading the project into
 Visual Studio
 * [CarCamApp.Android/MainActivity.cs](./CarCamApp.Android/MainActivity.cs):
 contains the code for the main Activity of the app which initializes the
